@@ -1,0 +1,44 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.errorImage {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.errorText {
+  text-align: center;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.paragrafo {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: var(--Verde);
+  color: var(--Roxo);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--verdeclaro);
+  color: #551fbd;
+}
+
+/* Adicione mais estilos conforme necessário */
