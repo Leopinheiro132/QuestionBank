@@ -6,7 +6,10 @@ export function withAuth({ requiredRole = 'user', redirectTo = '/login' }) {
     const { req } = context;
     const token = req.cookies.token;
 
+    console.log('withAuth: Start');
+    
     if (!token) {
+      console.log('withAuth: No token found');
       return {
         redirect: {
           destination: redirectTo,
@@ -16,10 +19,14 @@ export function withAuth({ requiredRole = 'user', redirectTo = '/login' }) {
     }
 
     try {
+      console.log('withAuth: Verifying token');
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const user = await User.findOne({ email: decoded.email });
+      
+      console.log('withAuth: Finding user in database');
+      const user = await User.findOne({ email: decoded.email }).lean();
 
       if (!user) {
+        console.log('withAuth: User not found');
         return {
           redirect: {
             destination: redirectTo,
@@ -35,6 +42,7 @@ export function withAuth({ requiredRole = 'user', redirectTo = '/login' }) {
       };
 
       if (rolesHierarchy[user.role] < rolesHierarchy[requiredRole]) {
+        console.log('withAuth: Insufficient role');
         return {
           redirect: {
             destination: '/home',
@@ -48,10 +56,12 @@ export function withAuth({ requiredRole = 'user', redirectTo = '/login' }) {
         role: user.role,
       };
 
+      console.log('withAuth: Success');
       return {
         props: { user: userData },
       };
     } catch (error) {
+      console.log('withAuth: Error', error);
       return {
         redirect: {
           destination: redirectTo,
