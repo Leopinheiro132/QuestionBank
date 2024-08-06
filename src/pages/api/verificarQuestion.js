@@ -1,8 +1,8 @@
-import Pergunta from '../../../models/Pergunta';
-import dbConnect from '../../../utils/dbConnect';
+import Pergunta from '../../../models/model-Pergunta';
+import connectDB from '../../../_ultils/mongoDbconnect';
 
 export default async function handler(req, res) {
-    await dbConnect();
+    await connectDB();
 
     const { perguntaId, resposta } = req.body;
 

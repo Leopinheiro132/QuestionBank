@@ -1,6 +1,6 @@
-import connectDB from "@/_ultils/mongoDbconnect"
+import connectDB from '../../../_ultils/mongoDbconnect';
 import crypt from 'bcrypt'
-import User from "@/models/UserModel";
+import User from "../../../models/UserModel";
 
 connectDB();
 
