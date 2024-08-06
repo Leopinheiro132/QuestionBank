@@ -10,11 +10,11 @@
 }
 
 .headImg {
-    padding-left:10px ;
-    width: 50px;
-    display: block;
+    padding: 10px 20px;
+    text-align: center;
     cursor: pointer;
     transition: .2s ease-in-out;
+    width: 45px;
 }
 .headerTitle {
     text-align: center;

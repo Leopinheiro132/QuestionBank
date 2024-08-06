@@ -22,10 +22,9 @@ export default async function login(req, res) {
     return res.status(401).json({ error: 'Credenciais inválidas' });
   }
 
-  // Adicionando isAdm ao token
-  const token = jwt.sign({ email: user.email, isAdm: user.isAdm }, process.env.JWT_SECRET, { expiresIn: '4h' });
+  const token = jwt.sign({ email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: '4h' });
 
-  if (user.isAdm) {
+  if (user.role == "admin") {
     res.status(200).json({ token, redirect: '/dashboard' });
   } else {
     res.status(200).json({ token, redirect: '/home' });

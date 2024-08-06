@@ -1,6 +1,6 @@
-import connectDB from "../../../_ultils/mongoDbconnect"
+import connectDB from "@/_ultils/mongoDbconnect"
 import crypt from 'bcrypt'
-import User from "../../../models/UserModel";
+import User from "@/models/UserModel";
 
 connectDB();
 
@@ -10,10 +10,10 @@ export default async function register(req, res) {
   }
   try {
     const { nome, password, email } = req.body;
-    const isAdm = false;
+    const role = 'user';
     const hashedPass = await crypt.hash(password, 10)
     const user = await User.findOne({email: email});
-    const newUser = new User({ nome, email, password: hashedPass, isAdm });
+    const newUser = new User({ nome, email, password: hashedPass, role });
     if (!user) {
       await newUser.save();
     } else {

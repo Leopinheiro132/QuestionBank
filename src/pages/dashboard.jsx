@@ -1,29 +1,21 @@
-import { withAuth } from "../../_ultils/withAuth";
+import ProtectedRoute from './_components/ProtectedRoute';
 import { useEffect, useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 import Head from "./_components/Head";
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6F61'];
-
-export const getServerSideProps = withAuth({ requiredRole: 'admin' });
-
 export default function Dashboard({ user }) {
-
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    porMateria: [],
+    porAno: [],
+    porBanca: []
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/api/dashperguntas');
-        const perguntas = response.data.data;
-
-        const formattedData = perguntas.map(pergunta => ({
-          pergunta: pergunta.pergunta,
-          quantidade: pergunta.alternativas.length,
-        }));
-
-        setData(formattedData);
+        setData(response.data.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -33,24 +25,50 @@ export default function Dashboard({ user }) {
   }, []);
 
   return (
-    <div>
-      <Head pageTitle='Admin'/>
-      <ResponsiveContainer width="100%" height={400}>
-        <PieChart>
-          <Pie
-            data={data}
-            dataKey="quantidade"
-            nameKey="pergunta"
-            outerRadius={150}
-            label
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
-  )
+    <ProtectedRoute allowedRoles={['admin']}>
+      <div>
+        <Head pageTitle='Admin' />
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '60px' }}>
+          <div style={{ width: '48%' }}>
+            <h2>Quantidade de Perguntas por Matéria</h2>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={data.porMateria}>
+                <XAxis dataKey="materia" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="quantidade" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div style={{ width: '48%' }}>
+            <h2>Quantidade de Perguntas por Ano</h2>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={data.porAno}>
+                <XAxis dataKey="ano" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="quantidade" fill="#82ca9d" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <h2>Quantidade de Perguntas por Banca</h2>
+        <ResponsiveContainer width="50%" height={400}>
+          <BarChart data={data.porBanca}>
+            <XAxis dataKey="banca" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="quantidade" fill="#ff7300" />
+          </BarChart>
+        </ResponsiveContainer>
+
+      </div>
+    </ProtectedRoute>
+  );
 }

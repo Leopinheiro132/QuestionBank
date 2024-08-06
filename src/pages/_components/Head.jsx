@@ -11,7 +11,7 @@ const Header = ({ pageTitle }) => {
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      {pageTitle === 'Login' && <CommonHeader />}
+      {pageTitle === 'Login' && <CommonHeader></CommonHeader>}
       {pageTitle === 'Inicial' && (
         <CommonHeader>
           <h1 className={styles.headerTitle}>Bem-vindo ao QuestionBank</h1>
