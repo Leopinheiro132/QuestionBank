@@ -1,11 +1,10 @@
-import connectDB from '../../../_ultils/mongoDbconnect';
+import {connectDB, disconnectDB } from '../../../_ultils/mongoDbconnect';
 import Pergunta from '../../../models/model-Pergunta';
 
 connectDB();
 
 export default async function handler(req, res) {
   try {
-    // Dados agrupados por matéria
     const perguntasPorMateria = await Pergunta.aggregate([
       {
         $group: {
@@ -22,7 +21,6 @@ export default async function handler(req, res) {
       }
     ]);
 
-    // Dados agrupados por ano
     const perguntasPorAno = await Pergunta.aggregate([
       {
         $group: {

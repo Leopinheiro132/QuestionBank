@@ -1,15 +1,15 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import connectDB from '../../../_ultils/mongoDbconnect';
+import { connectDB, disconnectDB } from '../../../_ultils/mongoDbconnect';
 import User from '../../../models/UserModel';
 
-connectDB();
 
 export default async function login(req, res) {
+  
   if (req.method !== 'POST') {
     return res.status(405).end();
   }
-  
+  await connectDB();
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
 
@@ -29,4 +29,5 @@ export default async function login(req, res) {
   } else {
     res.status(200).json({ token, redirect: '/home' });
   }
+  await disconnectDB()
 }

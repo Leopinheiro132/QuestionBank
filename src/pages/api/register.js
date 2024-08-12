@@ -1,4 +1,4 @@
-import connectDB from '../../../_ultils/mongoDbconnect';
+import { connectDB, disconnectDB } from '../../../_ultils/mongoDbconnect';
 import crypt from 'bcrypt'
 import User from "../../../models/UserModel";
 
@@ -23,4 +23,5 @@ export default async function register(req, res) {
   } catch (error) {
     res.status(500).json({ err: `erro : ${error}`});
   }
+
 }

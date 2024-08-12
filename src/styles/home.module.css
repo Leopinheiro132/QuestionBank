@@ -7,7 +7,7 @@
     height: 50vh; /* Define a altura da seção para 50% da altura da viewport */
 }
 
-.buttonSection>button {
+.buttonSection>.Link {
     background-color:#551fbd ; /* #a2eacb */
     color: #a2eacb; /* Cor correta */
     border: none;
@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 
-.buttonSection>button>img {
+.buttonSection>.Link>img {
     width: 80px;
     height: 80px;
     display: block;

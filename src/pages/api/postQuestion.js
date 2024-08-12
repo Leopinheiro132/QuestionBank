@@ -1,5 +1,5 @@
 import Pergunta from '../../../models/model-Pergunta';
-import connectDB from '../../../_ultils/mongoDbconnect';
+import { connectDB, disconnectDB } from '../../../_ultils/mongoDbconnect';
 
 export default async function handler(req, res) {
     await connectDB();
@@ -14,7 +14,6 @@ export default async function handler(req, res) {
                 texto,
                 alternativas
             });
-
             await novaPergunta.save();
             res.status(201).json(novaPergunta);
         } catch (error) {
@@ -23,4 +22,5 @@ export default async function handler(req, res) {
     } else {
         res.status(405).json({ error: 'Método não permitido' });
     }
+    disconnectDB()
 }
