@@ -1,17 +1,17 @@
+
+
 .footer {
   background-color: var(--Roxo);
   color: var(--verde);
   text-align: center;
   padding: 10px;
   max-width: 100%;
-  min-height: (100% - 60px);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
 }
-
 
 .socialIcons {
   margin-top: 10px;

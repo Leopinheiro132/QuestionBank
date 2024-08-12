@@ -2,14 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center; /* Centralizar na vertical */
+    align-items: center; 
     margin-top: 50px;
-    height: 50vh; /* Define a altura da seção para 50% da altura da viewport */
+    height: 50vh; 
 }
 
-.buttonSection>button {
-    background-color:#551fbd ; /* #a2eacb */
-    color: #a2eacb; /* Cor correta */
+.buttonSection button {
+    background-color:#551fbd ; 
+    color: #a2eacb;
     border: none;
     padding: 20px 40px;
     margin: 10px;
@@ -18,9 +18,38 @@
     cursor: pointer;
 }
 
-.buttonSection>button>img {
-    width: 80px;
-    height: 80px;
+.buttonSection button img {
+    width: 70px;
+    height: 70px;
     display: block;
     margin: 0 auto;
 }
+
+.tooltipContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+  
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+   
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltipContainer:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  

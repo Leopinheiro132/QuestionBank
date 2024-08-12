@@ -3,6 +3,7 @@ import Head from './_components/Head';
 import { useState } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import styles from '../styles/register.module.css';
 
 export default function RegisterPage() {
@@ -97,9 +98,14 @@ export default function RegisterPage() {
               required
             />
           </div>
-          <button type="button" className={styles.verSenha} onClick={() => setVerSenha(!versenha)}>
-            {versenha ? 'Ocultar Senha' : 'Mostrar Senha'}
-          </button>
+          <div className={styles.verSenha} onClick={() => setVerSenha(!versenha)}>
+          <div className={styles.iconContainer}>
+              {versenha ? <AiFillEyeInvisible size={24} /> : <AiFillEye size={24} />}
+              <span className={styles.iconText}>
+                {versenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+              </span>
+            </div>
+          </div>
           <button type="submit" className={styles.btnRegistrar}>
             Registrar
           </button>
@@ -109,3 +115,4 @@ export default function RegisterPage() {
     </>
   );
 }
+  
