@@ -40,7 +40,7 @@ export default function HomePage() {
                 </p>
             </div>
             <div className={styles.image}>
-                <img className={styles.imageImg} src="image2.png" alt="Imagem 2"/>
+                <img className={styles.imageImgQuestion} src="/img/inicio/question.png" alt="Imagem 2"/>
             </div>
         </section>
     </main>

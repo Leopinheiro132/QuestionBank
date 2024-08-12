@@ -61,7 +61,7 @@ const MenuHamburguer = () => {
               <Link href="/configuracoes">Configurações</Link>
             </li>
             <li>
-              <button onClick={handleLogout}>Logout</button>
+              <button className={styles.logout} onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
