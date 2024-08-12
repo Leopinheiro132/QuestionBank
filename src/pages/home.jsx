@@ -3,6 +3,7 @@ import Headersearch from './_components/Headersearch';
 import MenuHamburguer from './_components/MenuHamburguer';
 import styles from '../styles/home.module.css';
 import ProtectedRoute from './_components/ProtectedRoute';
+import Header from './_components/Head';
 import Link from 'next/link';
 
 export default function Home({ user }) {
@@ -10,7 +11,7 @@ export default function Home({ user }) {
   return (
     <ProtectedRoute allowedRoles={['user', 'admin']}>
       <div>
-        <Headersearch />
+        <Header/>
         <MenuHamburguer />
         <section className={styles.buttonSection}>
 
