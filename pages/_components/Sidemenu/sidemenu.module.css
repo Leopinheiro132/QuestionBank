@@ -1,0 +1,116 @@
+/* components/MenuStyles.module.css */
+.container {
+    position: relative;
+  }
+  
+  .hamburguerButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1002; /* Certifica-se de que o botão está acima do menu */
+  }
+  
+  .hamburguerButton svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+  }
+  
+  .menuContent {
+    position: fixed;
+    top: 80px; /* Inicia 60px abaixo do botão */
+    left: -100%;
+    width: 250px;
+    height: calc(100% - 80px); /* Ajusta a altura para considerar a margem */
+    background-color: #fff;
+    padding: 20px;
+    transition: left 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1001; /* Certifica-se de que o menu está abaixo do botão */
+  }
+  
+  .menuContent.open {
+    left: 0; /* Desliza da esquerda */
+    opacity: 1;
+  }
+  
+  .menuContent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menuContent li {
+    margin-bottom: 10px;
+  }
+  
+  .menuContent a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdownButton {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .dropdownContent {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: none;
+    width: 100%;
+  }
+  
+  .dropdownContent li {
+    margin-bottom: 10px;
+  }
+  
+  .dropdownContent a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown:hover .dropdownContent {
+    display: block;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sobreposição semitransparente */
+    z-index: 1000; /* Logo abaixo do botão */
+    display: none;
+  }
+  
+  .overlay.show {
+    display: block;
+  }
+  
+  /* Media Queries para Responsividade */
+  @media (max-width: 768px) {
+    .menuContent {
+      width: 100%;
+      height: calc(100% - 60px); /* Ajuste para dispositivos móveis */
+    }
+  }
+  
