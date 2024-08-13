@@ -3,7 +3,6 @@ import Headersearch from './_components/Headersearch';
 import MenuHamburguer from './_components/MenuHamburguer';
 import styles from '../styles/home.module.css';
 import ProtectedRoute from './_components/ProtectedRoute';
-import Header from './_components/Head';
 import Link from 'next/link';
 
 export default function Home({ user }) {
@@ -11,29 +10,39 @@ export default function Home({ user }) {
   return (
     <ProtectedRoute allowedRoles={['user', 'admin']}>
       <div>
-        <Header/>
+        <Headersearch />
         <MenuHamburguer />
         <section className={styles.buttonSection}>
 
           <div className={styles.tooltipContainer}>
-            <button><img src="/img/concursos/militaryhelmet.svg" alt="Militar"/></button>
-            <span className={styles.tooltip}>Militar</span>
+            <Link href='/pergunta'>
+              <button><img src="/img/concursos/militaryhelmet.svg" alt="Militar" /></button>
+              <span className={styles.tooltip}>Militar</span>
+            </Link>
           </div>
           <div className={styles.tooltipContainer}>
-            <button><img src="/img/concursos/concurso.png" alt="Concursos"/></button>
-            <span className={styles.tooltip}>Concursos</span>
+            <Link href='/pergunta'>
+              <button><img src="/img/concursos/concurso.png" alt="Concursos" /></button>
+              <span className={styles.tooltip}>Concursos</span>
+            </Link>
           </div>
           <div className={styles.tooltipContainer}>
-            <button><img src="/img/concursos/enem.svg" alt="Enem"/></button>
-            <span className={styles.tooltip}>Enem</span>
+            <Link href='/pergunta'>
+              <button><img src="/img/concursos/enem.svg" alt="Enem" /></button>
+              <span className={styles.tooltip}>Enem</span>
+            </Link>
           </div>
           <div className={styles.tooltipContainer}>
-            <button><img src="/img/concursos/obmep.png" alt="Obemep"/></button>
-            <span className={styles.tooltip}>Obmep</span>
+            <Link href='/pergunta'>
+              <button><img src="/img/concursos/obmep.png" alt="Obemep" /></button>
+              <span className={styles.tooltip}>Obmep</span>
+            </Link>
           </div>
           <div className={styles.tooltipContainer}>
-            <button><img src="/img/concursos/calculator.svg" alt="Matemática Básica"/></button>
-            <span className={styles.tooltip}>Matemática Básica</span>
+            <Link href='/pergunta'>
+              <button><img src="/img/concursos/calculator.svg" alt="Matemática Básica" /></button>
+              <span className={styles.tooltip}>Matemática Básica</span>
+            </Link>
           </div>
         </section>
       </div>
