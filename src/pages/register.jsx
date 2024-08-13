@@ -3,7 +3,6 @@ import Head from './_components/Head';
 import { useState } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import styles from '../styles/register.module.css';
 
 export default function RegisterPage() {
@@ -55,7 +54,7 @@ export default function RegisterPage() {
       <Head pageTitle="registro" />
       <div className={styles.sec}>
         <h1 className={styles.titulo}>Registro</h1>
-        <p className={styles.paragraf}>Preencha os campos abaixo para se cadastrar no QuestionBank</p>
+        <p className={styles.paragraf}>Preencha os campos abaixo para se cadastrar no MetaConquista</p>
         <div className={styles.error}>{error}</div>
         <form className={styles.form} onSubmit={handleRegister}>
           <div className={styles.inputGroup}>
@@ -98,14 +97,9 @@ export default function RegisterPage() {
               required
             />
           </div>
-          <div className={styles.verSenha} onClick={() => setVerSenha(!versenha)}>
-          <div className={styles.iconContainer}>
-              {versenha ? <AiFillEyeInvisible size={24} /> : <AiFillEye size={24} />}
-              <span className={styles.iconText}>
-                {versenha ? 'Ocultar Senha' : 'Mostrar Senha'}
-              </span>
-            </div>
-          </div>
+          <button type="button" className={styles.verSenha} onClick={() => setVerSenha(!versenha)}>
+            {versenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+          </button>
           <button type="submit" className={styles.btnRegistrar}>
             Registrar
           </button>
@@ -115,4 +109,3 @@ export default function RegisterPage() {
     </>
   );
 }
-  

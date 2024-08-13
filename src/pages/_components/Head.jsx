@@ -14,7 +14,7 @@ const Header = ({ pageTitle }) => {
       {pageTitle === 'Login' && <CommonHeader></CommonHeader>}
       {pageTitle === 'Inicial' && (
         <CommonHeader>
-          <h1 className={styles.headerTitle}>Bem-vindo ao QuestionBank</h1>
+          <h1 className={styles.headerTitle}>Bem-vindo ao MetaConquista</h1>
           <button className={styles.btnLogin} onClick={handleLogin}>Login</button>
         </CommonHeader>
       )}
