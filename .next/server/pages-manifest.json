@@ -2,11 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/home": "pages/home.js",
   "/api/verify-token": "pages/api/verify-token.js",
-  "/pergunta": "pages/pergunta.js",
-  "/api/getquestion": "pages/api/getquestion.js",
   "/": "pages/index.js",
-  "/login": "pages/login.js",
-  "/api/login": "pages/api/login.js"
+  "/home": "pages/home.js",
+  "/dashboard": "pages/dashboard.js",
+  "/dashboard/cadastro": "pages/dashboard/cadastro.js",
+  "/404": "pages/404.js"
 }
