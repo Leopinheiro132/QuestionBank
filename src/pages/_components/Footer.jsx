@@ -12,7 +12,7 @@ export default function Footer() {
         </a>
       </div>
       <div className={styles.footerText}>
-        <p>Todos os direitos reservados &copy; 2024. Feito por Leo Pinheiro</p>
+        <p>Todos os direitos reservados &copy; 2023. Feito por Leo Pinheiro</p>
       </div>
     </footer>
   )

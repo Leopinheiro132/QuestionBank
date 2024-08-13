@@ -1,4 +1,4 @@
-import styles from '../../../styles/Head.module.css';
+import styles from '../../../styles/Head.module.css'
 import { useRouter } from 'next/router';
 
 const CommonHeader = ({ children }) => {

@@ -1,14 +1,8 @@
-
 .imageSection {
     display: flex;
-    flex-direction: row;
-    align-items: center; 
-    padding: 2vw;
+    align-items: center;
+    padding: 1.28vw;
     text-align: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
 }
 
 .image {
@@ -18,11 +12,6 @@
 
 .imageImg {
     max-width: 100%;
-    height: auto;
-}
-
-.imageImgQuestion {
-    width: 350px;
     height: auto;
 }
 

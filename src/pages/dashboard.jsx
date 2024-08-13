@@ -25,7 +25,7 @@ export default function Dashboard({ user }) {
   }, []);
 
   return (
-    <ProtectedRoute allowedRoles={['admin', 'user']}>
+    <ProtectedRoute allowedRoles={['admin']}>
       <div>
         <Head pageTitle='Admin' />
 
