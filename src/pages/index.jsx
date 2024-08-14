@@ -15,7 +15,7 @@ export default function HomePage() {
             </div>
             <div className={styles.text}>
                 <p>
-                Explore um mundo de conhecimento sem limites com o QuestionBank!
+                Explore um mundo de conhecimento sem limites com o MetaConquista!
                  Nossa plataforma oferece acesso a uma vasta coleção de questões
                   e respostas cuidadosamente selecionadas para aprimorar seu aprendizado.
                    Prepare-se para o sucesso acadêmico e profissional de forma eficaz,
@@ -29,14 +29,14 @@ export default function HomePage() {
         <section className={styles.imageSection}>
             <div className={styles.text}>
                 <p>
-                O QuestionBank é o seu parceiro de confiança na jornada do 
+                O MetaConquista é o seu parceiro de confiança na jornada do 
                 conhecimento. Com uma interface intuitiva e um amplo conjunto
                  de recursos, nossa plataforma torna a aprendizagem mais 
                  agradável e eficaz do que nunca. Encontre as respostas que
                   você procura, aprofunde seus conhecimentos e alcance seus
                    objetivos acadêmicos e profissionais de forma rápida e 
                    eficiente. Não espere mais, comece a explorar as possibilidades
-                    ilimitadas do QuestionBank hoje mesmo!
+                    ilimitadas do MetaConquista hoje mesmo!
                 </p>
             </div>
             <div className={styles.image}>

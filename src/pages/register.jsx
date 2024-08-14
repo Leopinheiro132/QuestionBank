@@ -55,7 +55,7 @@ export default function RegisterPage() {
       <Head pageTitle="registro" />
       <div className={styles.sec}>
         <h1 className={styles.titulo}>Registro</h1>
-        <p className={styles.paragraf}>Preencha os campos abaixo para se cadastrar no QuestionBank</p>
+        <p className={styles.paragraf}>Preencha os campos abaixo para se cadastrar no MetaConquista</p>
         <div className={styles.error}>{error}</div>
         <form className={styles.form} onSubmit={handleRegister}>
           <div className={styles.inputGroup}>
