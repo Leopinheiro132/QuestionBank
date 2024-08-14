@@ -1,7 +1,7 @@
-/* styles/register.module.css */
+
 .sec {
   background-color: var(--Roxo);
-  padding: 10px;
+  padding: 10px 30px 50px;
   border-radius: 2%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   max-width: 400px;
@@ -12,11 +12,17 @@
 
 .titulo {
   text-align: center;
-  color: #551fbd;
+  color: #1cd471;
 }
 
 .paragraf {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   color: #777;
+  position: relative;
+  transform: translateX(1.4rem);
 }
 
 .error {
@@ -27,6 +33,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
 }
 
 .inputGroup {
@@ -55,7 +62,22 @@ button.verSenha {
   border: none;
   color: var(--Verde);
   cursor: pointer;
+  
+  
 }
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.iconText {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
 
 .btnRegistrar {
   background-color: #1cd471;
@@ -73,3 +95,4 @@ button.verSenha {
   background-color: var(--verdeclaro);
   color: #551fbd;
 }
+

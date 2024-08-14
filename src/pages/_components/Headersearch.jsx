@@ -1,4 +1,4 @@
-import styles from '../../styles/headersearch.module.css'
+import styles from './headersearch.module.css'
 import Router from 'next/router';
 export default function Headersearch() {
    return (

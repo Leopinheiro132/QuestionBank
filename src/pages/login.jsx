@@ -3,6 +3,7 @@ import Router from 'next/router';
 import Head from './_components/Head';
 import styles from '../styles/login.module.css';
 import Footer from './_components/Footer';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -20,7 +21,7 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      const { token, redirect } = await response.json(); 
+      const { token, redirect } = await response.json();
       localStorage.setItem('token', token);
       Router.push(redirect); // Use o valor de 'redirect' retornado pelo backend
     } else {
@@ -49,46 +50,54 @@ export default function LoginPage() {
 
   return (
     <div className={styles.container}>
-      <title>Login MetaConquista</title>
-      <Head pageTitle='Login'/>
+      <title>Login QuestionBank</title>
+      <Head pageTitle='Login' />
       <main className={styles.main}>
         <section className={styles.loginSection}>
           <h1>Login</h1>
           <form className={styles.forms} onSubmit={handleLogin}>
             <div className={styles.inputContainer}>
               <label className={styles.labels}>Email: </label>
-              <input 
-                className={styles.email} 
-                autoComplete='true' 
-                type="text" 
-                placeholder="Email" 
+              <input
+                className={styles.email}
+                autoComplete='true'
+                type="text"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onBlur={handleEmailBlur}
                 onFocus={() => setEmailError('')}
-                required 
+                required
               />
               {emailError && <p className={styles.error}>{emailError}</p>}
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.labels}>Senha: </label>
-              <input 
-                className={styles.pass} 
-                type={versenha ? "text" : "password"} 
-                placeholder="Password" 
-                value={password} 
+              <input
+                className={styles.pass}
+                type={versenha ? "text" : "password"}
+                placeholder="Password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value.replace(/[.*'="+<>/|\\?]/g, ""))}
-                required 
-                autoComplete='true' 
+                required
+                autoComplete='true'
               />
-              <button type="button" className={styles.passwordToggle} onClick={() => setVerSenha(!versenha)}>Mostrar Senha</button>
+
+            </div>
+            <div className={styles.verSenha} onClick={() => setVerSenha(!versenha)}>
+              <div className={styles.iconContainer}>
+                {versenha ? <AiFillEyeInvisible size={24} /> : <AiFillEye size={24} />}
+                <span className={styles.iconText}>
+                  {versenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+                </span>
+              </div>
             </div>
             <button className={styles.loginButton} type="submit">Login</button>
           </form>
           {error && <p className={styles.error} style={{ color: 'red' }}>{error}</p>}
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
