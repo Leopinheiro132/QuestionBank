@@ -16,7 +16,6 @@ export default function Perguntas() {
           throw new Error('Erro ao buscar as perguntas');
         }
         const data = await response.json();
-        console.log(data);
         const shuffled = data.sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, 10);
         setPerguntas(selected);

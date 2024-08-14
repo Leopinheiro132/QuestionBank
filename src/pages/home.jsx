@@ -5,7 +5,7 @@ import styles from '../styles/home.module.css';
 import ProtectedRoute from './_components/ProtectedRoute';
 import Link from 'next/link';
 
-export default function Home({ user }) {
+export default function Home() {
 
   return (
     <ProtectedRoute allowedRoles={['user', 'admin']}>
