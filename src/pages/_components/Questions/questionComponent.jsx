@@ -6,20 +6,20 @@ export default function Questao({ conteudo, indice }) {
   const [isCorrect, setIsCorrect] = useState(null);
   const [shuffledAlternatives, setShuffledAlternatives] = useState([]);
 
-  // Função para embaralhar as alternativas
   const shuffleArray = (array) => {
-    const shuffled = array.slice(); // Cria uma cópia do array
+    const shuffled = array.slice();
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Troca os elementos
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
   };
 
-  // Embaralhar as alternativas ao montar o componente
   useEffect(() => {
-    setShuffledAlternatives(shuffleArray(conteudo.alternativas));
-  }, [conteudo.alternativas]);
+    if (conteudo && conteudo.alternativas) {
+      setShuffledAlternatives(shuffleArray(conteudo.alternativas));
+    }
+  }, [conteudo]);
 
   const handleAnswerChange = (value) => {
     if (selectedAnswer === null) {
@@ -41,6 +41,10 @@ export default function Questao({ conteudo, indice }) {
     const result = await response.json();
     setIsCorrect(result.correct);
   };
+
+  if (!conteudo) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div className={styles.questionContainer}>

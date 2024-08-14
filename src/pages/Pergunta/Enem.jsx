@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Questao from './_components/Questions/questionComponent';
-import styles from '../styles/Perguntas.module.css';
-import ProtectedRoute from './_components/ProtectedRoute';
-import Headersearch from './_components/Headersearch';
-import MenuHamburguer from './_components/MenuHamburguer';
+import Questao from '../_components/Questions/questionComponent';
+import styles from '../../styles/Perguntas.module.css';
+import ProtectedRoute from '../_components/ProtectedRoute';
+import Headersearch from '../_components/Headersearch';
+import MenuHamburguer from '../_components/MenuHamburguer';
 
 export default function Perguntas() {
   const [perguntas, setPerguntas] = useState([]);
@@ -11,7 +11,7 @@ export default function Perguntas() {
   useEffect(() => {
     const fetchPerguntas = async () => {
       try {
-        const response = await fetch('/api/getquestion');
+        const response = await fetch('/api/getquestion/getEnem');
         if (!response.ok) {
           throw new Error('Erro ao buscar as perguntas');
         }

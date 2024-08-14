@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.container}>
-      <title>Login QuestionBank</title>
+      <title>Login MetaConquista</title>
       <Head pageTitle='Login' />
       <main className={styles.main}>
         <section className={styles.loginSection}>

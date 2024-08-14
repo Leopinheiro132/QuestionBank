@@ -11,10 +11,9 @@
 
 .headImg {
     padding: 10px 20px;
-    text-align: center;
-    cursor: pointer;
+    height: 60px;
     transition: .2s ease-in-out;
-    width: 45px;
+    width: 80px;
 }
 .headerTitle {
     text-align: center;
@@ -40,8 +39,6 @@
     width: 80px;
 }
 .headImg:hover {
-    width: 55px;
-    display: block;
     cursor: pointer;
     transform: scale(0.9);
 }

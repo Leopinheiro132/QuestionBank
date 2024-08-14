@@ -10,12 +10,12 @@ export default function Home({ user }) {
   return (
     <ProtectedRoute allowedRoles={['user', 'admin']}>
       <div>
-        <Headersearch />
         <MenuHamburguer />
+        <Headersearch />
         <section className={styles.buttonSection}>
 
           <div className={styles.tooltipContainer}>
-            <Link href='/pergunta'>
+            <Link href='/Pergunta/Militares'>
               <button><img src="/img/concursos/militaryhelmet.svg" alt="Militar" /></button>
               <span className={styles.tooltip}>Militar</span>
             </Link>
@@ -27,7 +27,7 @@ export default function Home({ user }) {
             </Link>
           </div>
           <div className={styles.tooltipContainer}>
-            <Link href='/pergunta'>
+            <Link href='/Pergunta/Enem'>
               <button><img src="/img/concursos/enem.svg" alt="Enem" /></button>
               <span className={styles.tooltip}>Enem</span>
             </Link>

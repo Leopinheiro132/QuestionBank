@@ -1,12 +1,10 @@
 import Pergunta from '../../../models/model-Pergunta';
 import { connectDB, disconnectDB } from '../../../_ultils/mongoDbconnect';
 
-connectDB();
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { perguntaId, resposta } = req.body;
-
+    await connectDB();
     try {
       const pergunta = await Pergunta.findById(perguntaId);
       if (!pergunta) {

@@ -1,0 +1,127 @@
+.container {
+    position: relative;
+  }
+  
+  .hamburgerButton {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+    transition: left 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+  }
+  
+  .menuOpen {
+    left: 0;
+    opacity: 1;
+  }
+  
+  .menuContent {
+    padding: 20px;
+    margin-top: 60px;
+  }
+  
+  .logoutButton {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdownButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .dropdown:hover .dropdownContent,
+  .dropdownContent.active {
+    display: block;
+  }
+  
+  .dropdownContent a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdownContent a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Animação para o botão de hambúrguer */
+  .hamburgerButton.open {
+    transform: rotate(0); /* Rotaciona o botão para criar o efeito de X */
+    background-color: transparent; /* Cor de fundo quando aberto */
+  }
+  
+  .hamburgerButton.close {
+    transform: rotate(0); /* Restaura o botão ao estado inicial */
+    background-color: transparent; /* Cor de fundo quando fechado */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .hamburgerButton {
+      font-size: 20px;
+      top: 15px;
+      left: 15px;
+    }
+    
+    .menu {
+      width: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hamburgerButton {
+      font-size: 18px;
+      top: 10px;
+      left: 10px;
+    }
+    
+    .menu {
+      width: 100%;
+    }
+  }
+  

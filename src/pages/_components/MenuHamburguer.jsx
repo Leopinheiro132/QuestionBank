@@ -39,21 +39,11 @@ const MenuHamburguer = () => {
           className={`${styles.menuContent} ${isOpen ? styles.open : ''}`}
           onClick={(e) => e.stopPropagation()}
         >
-            <div className={styles.dropdown}>
-            <button className={styles.dropdownButton}>Categorias</button>
-            <ul className={styles.dropdownContent}>
-              <li>
-                <Link href="/categorias/categoria-1">Categoria 1</Link>
-              </li>
-              <li>
-                <Link href="/categorias/categoria-2">Categoria 2</Link>
-              </li>
-              <li>
-                <Link href="/categorias/categoria-3">Categoria 3</Link>
-              </li>
-            </ul>
-          </div>
+
           <ul>
+            <li>
+              <Link href="/home">Inicio</Link>
+            </li>
             <li>
               <Link href="/perfil">Perfil</Link>
             </li>
@@ -70,4 +60,21 @@ const MenuHamburguer = () => {
     );
   };
   
-  export default MenuHamburguer;
+export default MenuHamburguer;
+/**
+ * 
+ * <div className={styles.dropdown}>
+              <button className={styles.dropdownButton}>Categorias</button>
+              <ul className={styles.dropdownContent}>
+                <li>
+                  <Link href="/categorias/categoria-1">Categoria 1</Link>
+                </li>
+                <li>
+                  <Link href="/categorias/categoria-2">Categoria 2</Link>
+                </li>
+                <li>
+                  <Link href="/categorias/categoria-3">Categoria 3</Link>
+                </li>
+              </ul>
+            </div>
+ */
